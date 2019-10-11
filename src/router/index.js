@@ -21,7 +21,7 @@ export default new Router({
     }, {
       path: '/home',
       name: 'home',
-      component: () => import('@/pages/home.vue'),
+      component: () => import('@/pages/home/home.vue'),
       meta: {
         title: '首页'
       }
