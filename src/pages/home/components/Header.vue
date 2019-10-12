@@ -1,15 +1,15 @@
 <template>
   <div class="header">
     <div class="header-left">
-      <icon class="iconfont back-icon">&#xe624;</icon>
+      <div class="iconfont back-icon">&#xe624;</div>
     </div>
     <div class="header-input">
-      <icon class="iconfont search-icon">&#xe632;</icon>
+      <span class="iconfont search-icon">&#xe632;</span>
       输入城市/景点/游玩主题
     </div>
     <div class="header-right">
       城市
-      <icon class="iconfont arrow-icon">&#xe600;</icon>
+      <span class="iconfont arrow-icon">&#xe600;</span>
     </div>
   </div>
 </template>

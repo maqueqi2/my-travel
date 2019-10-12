@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import VueAwesomeSwiper from 'vue-awesome-swiper'
 // 移动端或有些浏览器上click事件会有300ms的延时(会导致网页无法缩放)：在命令行输入：npm install fastclick --save
 import fastClick from 'fastclick'
 // TODO: styles是在webpack.base.conf.js新配置的，类似于@;修改webpack配置后项目需要重启，否则会报错
@@ -11,9 +12,11 @@ import 'styles/reset.css'
 // 解决1像素边框的问题(在多倍屏中，1像素边框会被显示成多像素边框)
 import 'styles/border.css'
 import 'styles/iconfont.css'
+import 'swiper/dist/css/swiper.css'
 
 Vue.config.productionTip = false
 fastClick.attach(document.body)
+Vue.use(VueAwesomeSwiper /*, { default global options } */)
 
 // 动态设置页面title
 router.beforeEach((to, from, next) => {
