@@ -1,10 +1,11 @@
 <template>
-  <div class="wrapper">
+  <!-- 轮播图一开创建是一个空数组，所以会默认显示最后一张轮播图；加上v-if="list.length"让其在数据传递过来时再显示就能避免这个问题 -->
+  <div class="wrapper" v-if="list.length">
     <!-- ref="mySwiper" @someSwiperEvent="callback"和暂时用不上 -->
     <!-- <swiper :options="swiperOption" ref="mySwiper" @someSwiperEvent="callback"> -->
     <swiper :options="swiperOption">
       <!-- slides -->
-      <swiper-slide v-for="item of swiperList" :key="item.id">
+      <swiper-slide v-for="item of list" :key="item.id">
         <img class="swiper-img" :src="item.imgUrl" />
       </swiper-slide>
       <!-- Optional controls -->
@@ -21,21 +22,18 @@
 <script>
 export default {
   name: 'HomeSwiper',
+  props: {
+    list: Array
+  },
   data () {
     return {
       swiperOption: {
         // 控制显示分页的操作
         pagination: '.swiper-pagination',
         // 支持循环轮播
-        loop: true
-      },
-      swiperList: [{
-        id: '1001',
-        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1801/1a/94428c6dea109402.jpg_640x200_2cf590d8.jpg'
-      }, {
-        id: '1002',
-        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1802/42/7c92b9a381e46402.jpg_640x200_1cdce2a4.jpg'
-      }]
+        loop: true,
+        autoplay: 2000
+      }
     }
   }
 }
