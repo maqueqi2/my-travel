@@ -3,7 +3,7 @@
     <div class="title">热销推荐</div>
     <ul>
       <!-- border-bottom是为了使用先前引入的1像素边框 -->
-      <li class="item border-bottom" v-for="item of recommendList" :key="item.id">
+      <li class="item border-bottom" v-for="item of list" :key="item.id">
         <img class="item-img" :src="item.imgUrl" />
         <div class="item-info">
           <p class="item-title">{{item.title}}</p>
@@ -18,24 +18,12 @@
 <script>
 export default {
   name: 'HomeRecommend',
+  props: {
+    list: Array
+  },
   data () {
     return {
-      recommendList: [{
-        id: '001',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1505/93/93bc1aacad975843.water.jpg_200x200_27557f82.jpg',
-        title: '山沟沟',
-        desc: '山沟沟里来姑娘多；这里特别受欢迎的呦！光阴荏苒，缘分纤长！'
-      }, {
-        id: '002',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1909/d3/d3d52fa90b472b46a3.water.jpg_200x200_ce81137b.jpg',
-        title: '杭州乐园',
-        desc: '德智体美劳全面发展的亲子日，这些地方该去看看啊，啊哈哈哈哈'
-      }, {
-        id: '003',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1603/26/26e9dc52ae2719890.water.jpg_200x200_681d0461.jpg',
-        title: '天目山',
-        desc: '山顶满眼彩色，此情此景醉了'
-      }]
+      recommendList: []
     }
   }
 }
