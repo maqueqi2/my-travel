@@ -11,7 +11,7 @@ export default new Router({
     //   redirect: '/homePage'
     // },
     {
-      path: '/',
+      path: '/hello',
       name: 'HelloWorld',
       // @代表src目录
       component: () => import('@/components/HelloWorld.vue'),
@@ -19,11 +19,25 @@ export default new Router({
         title: '测试页'
       }
     }, {
+      path: '/',
+      name: 'home',
+      component: () => import('@/pages/home/home.vue'),
+      meta: {
+        title: '首页'
+      }
+    }, {
       path: '/home',
       name: 'home',
       component: () => import('@/pages/home/home.vue'),
       meta: {
         title: '首页'
+      }
+    }, {
+      path: '/city',
+      name: 'city',
+      component: () => import('@/pages/city/city.vue'),
+      meta: {
+        title: '城市'
       }
     }
   ]
