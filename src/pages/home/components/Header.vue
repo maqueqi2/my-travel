@@ -5,11 +5,11 @@
     </div>
     <div class="header-input">
       <span class="iconfont search-icon">&#xe632;</span>
-      输入城市/景点/游玩主题
+      输入城市/景点/游玩主题/{{this.doubleCity}}
     </div>
     <router-link to='/city'>
       <div class="header-right">
-        {{this.city}}
+        <div class="text">{{this.city}}</div>
         <span class="iconfont arrow-icon">&#xe600;</span>
       </div>
     </router-link>
@@ -17,10 +17,12 @@
 </template>
 
 <script>
+import {mapState, mapGetters} from 'vuex'
 export default {
   name: 'HomeHeader',
-  props: {
-    city: String
+  computed: {
+    ...mapState(['city']),
+    ...mapGetters(['doubleCity'])
   }
 }
 </script>
@@ -29,6 +31,7 @@ export default {
   // @import '~@/assets/styles/varibles.styl'
   // styles是在webpack.base.conf.js新配置的，类似于@
   @import '~styles/varibles.styl'
+  @import '~styles/mixins.styl'
   .header
     display flex
     line-height 86px
@@ -46,18 +49,21 @@ export default {
       height 64px
       line-height 64px
       padding-left 20px
-      margin-top 12px
-      margin-left 20px
+      margin 12px 15px 0 10px
       background #fff
       border-radius 10px
       color #ccc
       .search-icon
         font-size 28px
     .header-right
+      display flex
       width 124px
       float right
       text-align center
       color #fff
+      .text
+        width 80px
+        ellipsis()
       .arrow-icon
         margin-left -2px
         font-size 24px

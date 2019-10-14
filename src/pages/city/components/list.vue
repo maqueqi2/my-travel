@@ -5,14 +5,14 @@
         <div class="title border-topbottom">当前城市</div>
         <div class="button-list">
           <div class="button-wapper">
-            <div class="button">北京</div>
+            <div class="button">{{this.currentCity}}</div>
           </div>
         </div>
       </div>
       <div class="area">
         <div class="title border-topbottom">热门城市</div>
         <div class="button-list">
-          <div class="button-wapper" v-for="item in hot" :key="item.id">
+          <div class="button-wapper" @click="handleCityClick(item.name)" v-for="item in hot" :key="item.id">
             <div class="button">{{item.name}}</div>
           </div>
         </div>
@@ -20,7 +20,7 @@
       <div class="area" v-for="(item, key) of cities" :key="key" :ref="key">
         <div class="title border-topbottom">{{key}}</div>
         <div class="item-list">
-          <div class="item border-bottom" v-for="innerItem of item" :key="innerItem.id">{{innerItem.name}}</div>
+          <div class="item border-bottom" @click="handleCityClick(innerItem.name)" v-for="innerItem of item" :key="innerItem.id">{{innerItem.name}}</div>
         </div>
       </div>
     </div>
@@ -28,6 +28,7 @@
 </template>
 
 <script>
+import {mapState, mapMutations} from 'vuex'
 // 使该区域拥有一个类似于app的滑动效果，真的很酷炫
 import Bscroll from 'better-scroll'
 export default {
@@ -36,6 +37,21 @@ export default {
     hot: Array,
     cities: Object,
     letter: String
+  },
+  computed: {
+    ...mapState({
+      currentCity: 'city'
+    })
+  },
+  methods: {
+    handleCityClick (city) {
+      // this.$store.dispatch('changeCity', city)
+      // 直接调用mutations
+      // this.$store.commit('changeCityFun', city)
+      this.changeCityFun(city)
+      this.$router.push('/')
+    },
+    ...mapMutations(['changeCityFun'])
   },
   mounted () {
     this.scroll = new Bscroll(this.$refs.wapper)
