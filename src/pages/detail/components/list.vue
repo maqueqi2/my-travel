@@ -5,9 +5,9 @@
         <span class="item-title-icon"></span>
         {{item.title}}
       </div>
-      <div v-if="item.chilren" class="item-chilren">
+      <div v-if="item.children" class="item-children">
         <!-- 递归组件 -->
-        <detail-list :list="item.chilren"></detail-list>
+        <detail-list :list="item.children"></detail-list>
       </div>
     </div>
   </div>
@@ -35,6 +35,6 @@ export default {
     line-height 80px
     font-size 32px
     padding 0 20px
-  .item-chilren
+  .item-children
     padding 0 20px
 </style>

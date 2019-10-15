@@ -48,5 +48,9 @@ export default new Router({
         title: '城市'
       }
     }
-  ]
+  ],
+  // 页面切换时，始终回到最顶部(不受其它页面滚动的影响)
+  scrollBehavior (to, from, savedPosition) {
+    return { x: 0, y: 0 }
+  }
 })
