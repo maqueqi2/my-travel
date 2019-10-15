@@ -39,6 +39,14 @@ export default new Router({
       meta: {
         title: '城市'
       }
+    }, {
+      // /:id表示路径后面携带一个键名为id的参数
+      path: '/detail/:id',
+      name: 'detail',
+      component: () => import('@/pages/detail/detail.vue'),
+      meta: {
+        title: '城市'
+      }
     }
   ]
 })
