@@ -69,6 +69,7 @@ export default {
     top 0
     left 0
     right 0
+    z-index 9
     height $headerHeight
     line-height $headerHeight
     text-align center
