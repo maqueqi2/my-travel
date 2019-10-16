@@ -57,6 +57,7 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
+    // 指定打包项目运行在服务器的那层目录(地址)上
     assetsPublicPath: '/',
 
     /**

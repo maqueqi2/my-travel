@@ -39,6 +39,18 @@ export default new Router({
       meta: {
         title: '城市'
       }
+    }, {
+      // /:id表示路径后面携带一个键名为id的参数
+      path: '/detail/:id',
+      name: 'detail',
+      component: () => import('@/pages/detail/detail.vue'),
+      meta: {
+        title: '城市'
+      }
     }
-  ]
+  ],
+  // TODO:页面切换时，始终回到最顶部(不受其它页面滚动的影响)
+  scrollBehavior (to, from, savedPosition) {
+    return { x: 0, y: 0 }
+  }
 })

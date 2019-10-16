@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import store from './store'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 // 移动端或有些浏览器上click事件会有300ms的延时(会导致网页无法缩放)：在命令行输入：npm install fastclick --save
 import fastClick from 'fastclick'
@@ -13,6 +14,8 @@ import 'styles/reset.css'
 import 'styles/border.css'
 import 'styles/iconfont.css'
 import 'swiper/dist/css/swiper.css'
+// 将ES6代码转为ES5代码 安装代码npm install babel-polyfill --S
+import 'babel-polyfill'
 
 Vue.config.productionTip = false
 fastClick.attach(document.body)
@@ -31,6 +34,7 @@ router.beforeEach((to, from, next) => {
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })
