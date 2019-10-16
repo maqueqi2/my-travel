@@ -26,6 +26,7 @@ export default {
   methods: {
     handleScroll () {
       const top = document.documentElement.scrollTop || document.body.scrollTop
+      console.log(top)
       if (top > 60) {
         let opacity = top / 140
         opacity = opacity > 1 ? 1 : opacity
@@ -38,12 +39,19 @@ export default {
       }
     }
   },
-  activated () {
+  // activated () {
+  //   window.addEventListener('scroll', this.handleScroll)
+  // },
+  // // 页面即将被隐藏(替换时)执行
+  // deactivated () {
+  //   // 事件解绑
+  //   window.removeEventListener('scroll', this.handleScroll)
+  // },
+  // 在App.vue中使用了 exclude="detail"，导致此页面不能触发activated和deactivated；所以又采用了mounted和destroyed
+  mounted () {
     window.addEventListener('scroll', this.handleScroll)
   },
-  // 页面即将被隐藏(替换时)执行
-  deactivated () {
-    // 事件解绑
+  destroyed () {
     window.removeEventListener('scroll', this.handleScroll)
   }
 }

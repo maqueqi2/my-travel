@@ -14,6 +14,8 @@ import 'styles/reset.css'
 import 'styles/border.css'
 import 'styles/iconfont.css'
 import 'swiper/dist/css/swiper.css'
+// 将ES6代码转为ES5代码 安装代码npm install babel-polyfill --S
+import 'babel-polyfill'
 
 Vue.config.productionTip = false
 fastClick.attach(document.body)
